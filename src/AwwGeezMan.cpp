@@ -22,6 +22,9 @@ exists a Morty who says everything backwards.
 // Include the Morty header file
 #include "Morty.hpp"
 
+#include <stdlib.h>	//For command line parsing
+
+
 
 int main (int ac, char** av) {
 	// Parse the command line arguments. The program is executed as
@@ -38,11 +41,32 @@ int main (int ac, char** av) {
 	}
 	
 	// Parse the command line arguments
-	
+	int start = atoi(*(av + 1));
+	int stop = atoi(*(av + 2));
+	int step = 1;
+	std::string dimension;
+
+	if (ac == 4) { dimension = (*(av + 3)); }
+	if (ac == 5) {
+		step = atoi(*(av + 3));
+		dimension = (*(av + 4));
+	}
 		
+
 	// Depending on the dimension of the arguments, call the appropriate Morty
-	// function
-	
+	if (dimension == "Z286") { 
+		std::cout << "Morty " << dimension << " says:";
+		Z286::Morty(start, stop, step); 
+	}
+	else if (dimension == "C137") {
+		std::cout << "Morty " << dimension << " says:";
+		C137::Morty(start, stop, step);
+	}
+	else {
+		std::cout << "ERROR: Unkown dimension!!";
+	}
 	
 	return 0;
 }
+
+
