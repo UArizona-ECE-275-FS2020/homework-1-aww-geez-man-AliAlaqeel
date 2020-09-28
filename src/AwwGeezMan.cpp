@@ -63,7 +63,7 @@ int main (int ac, char** av) {
 		C137::Morty(start, stop, step);
 	}
 	else {
-		std::cout << "ERROR: Unkown dimension!!";
+		std::cout << "ERROR: Unknown dimension!!";
 	}
 	
 	return 0;
