@@ -56,11 +56,13 @@ int main (int ac, char** av) {
 	// Depending on the dimension of the arguments, call the appropriate Morty
 	if (dimension == "Z286") { 
 		std::cout << "Morty " << dimension << " says:";
-		Z286::Morty(start, stop, step); 
+		if (step != 1)	Z286::Morty(start, stop, step);
+		else Z286::Morty(start, stop);
 	}
 	else if (dimension == "C137") {
 		std::cout << "Morty " << dimension << " says:";
-		C137::Morty(start, stop, step);
+		if (step != 1)	C137::Morty(start, stop, step);
+		else C137::Morty(start, stop);
 	}
 	else {
 		std::cout << "ERROR: Unknown dimension!!";
